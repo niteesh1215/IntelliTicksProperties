@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Property } from '../models/property.model';
-import { secret } from '../secret';
+import { secret } from '../../environments/secret';
 
 @Injectable({
   providedIn: 'root',
