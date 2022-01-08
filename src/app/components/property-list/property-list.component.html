@@ -1,0 +1,78 @@
+<div class="container">
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light py-4 mb-3">
+        <a class="navbar-brand" href="#">INTELLITICKPROPERTIES</a>
+        <div>
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-4" (click)="openModal(addProperty)">Add</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" (click)="delete()">Delete</button>
+        </div>
+    </nav>
+
+
+    <div class="row">
+        <div class="col-12 col-lg-4 col-md-6 " *ngFor="let property of propertiesStore.properties$ |async">
+            <div class="card mb-4">
+                <img class="card-img-top" src="/assets/default.jpeg" alt="Card image cap">
+                <input type="checkbox" aria-label="Checkbox for following text input" [checked]="property.isSelected"
+                    (change)="selectionChange($event,property.id)">
+                <div class="card-body">
+                    <h5> {{property.name}}</h5>
+                    <h6>200 sqft</h6>
+                    <p class="card-text" style="min-height: 48px;">{{property.description | slice:0:100}}{{
+                        (property.description.length>100)? (property.description |
+                        slice:0:6)+'..':(property.description) }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<ng-template #addProperty let-modal>
+    <div class="modal-header">
+        <h6 class="modal-title">Add Property</h6>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="addPropertyForm" (ngSubmit)="addNewProperty()">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <div *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)" class="alert alert-danger"
+                    style="height:30px;padding:2px 4px;">
+                    <small *ngIf="f['name'].errors?.['required']">
+                        Name is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="size">Size</label>
+                <input type="text" class="form-control" id="size" formControlName="size">
+                <div *ngIf="f['size'].invalid && (f['size'].dirty || f['size'].touched)" class="alert alert-danger"
+                    style="height:30px;padding:2px 4px;">
+                    <small *ngIf="f['size'].errors?.['required']">
+                        Size is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+                <div *ngIf="f['description'].invalid && (f['description'].dirty || f['description'].touched)"
+                    class="alert alert-danger" style="height:30px;padding:2px 4px;">
+                    <small *ngIf="f['description'].errors?.['required']">
+                        Description is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')">Cancel</button>
+            <button type="submit" class="btn btn-outline-success" [disabled]="!addPropertyForm.valid">Create</button>
+        </div>
+    </form>
+</ng-template>
