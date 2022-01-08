@@ -18,9 +18,9 @@
                 <div class="card-body">
                     <h5> {{property.name}}</h5>
                     <h6>200 sqft</h6>
-                    <p class="card-text" style="min-height: 48px;">{{property.description | slice:0:100}}{{
-                        (property.description.length>100)? (property.description |
-                        slice:0:6)+'..':(property.description) }}</p>
+                    <p class="card-text" style="min-height: 48px;">{{
+                        (property.description.length>60)? (property.description |
+                        slice:0:60)+'..':(property.description) }}</p>
                 </div>
 
             </div>
