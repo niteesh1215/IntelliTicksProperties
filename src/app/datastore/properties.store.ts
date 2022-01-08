@@ -71,7 +71,6 @@ export class PropertiesStore {
         });
         this.toDeleteIds = [];
         this.notifierService.notify('success', 'Deleted Successfully');
-        this.retrieveProperties();
       },
       error: (e) => {
         console.log(e);

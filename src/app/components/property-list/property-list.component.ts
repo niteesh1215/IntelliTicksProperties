@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PropertiesStore } from 'src/app/datastore/property-list.store';
+import { PropertiesStore } from 'src/app/datastore/properties.store';
 import { Property } from 'src/app/models/property.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-property-list',
