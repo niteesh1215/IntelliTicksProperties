@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PropertyListComponent } from './components/property-list/property-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NotifierModule } from 'angular-notifier';
 
 
@@ -19,6 +20,7 @@ import { NotifierModule } from 'angular-notifier';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    HttpClientModule,
     NotifierModule.withConfig(
       {
         position: {

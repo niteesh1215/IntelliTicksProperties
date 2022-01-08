@@ -1,6 +1,6 @@
 <div class="container">
     <!-- As a link -->
-    <nav class="navbar navbar-light bg-light py-4 mb-3">
+    <nav class="navbar navbar-light bg-light py-4 mb-3 sticky-top">
         <a class="navbar-brand" href="#">INTELLITICKPROPERTIES</a>
         <div>
             <button class="btn btn-outline-success my-2 my-sm-0 mr-4" (click)="openModal(addProperty)">Add</button>
@@ -14,7 +14,7 @@
             <div class="card mb-4">
                 <img class="card-img-top" src="/assets/default.jpeg" alt="Card image cap">
                 <input type="checkbox" aria-label="Checkbox for following text input" [checked]="property.isSelected"
-                    (change)="selectionChange($event,property.id)">
+                    (change)="selectionChange($event,property.id!)">
                 <div class="card-body">
                     <h5> {{property.name}}</h5>
                     <h6>200 sqft</h6>

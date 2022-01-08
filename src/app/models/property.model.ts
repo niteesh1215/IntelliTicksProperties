@@ -1,6 +1,6 @@
 
 export interface Property {
-    id: string,
+    id?: string,
     name: string,
     description: string,
     size: string,
